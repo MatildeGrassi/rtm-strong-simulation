@@ -1,0 +1,5 @@
+*.dat
+*.jld2
+IsingCircuit/
+IsingCircuitRTM/
+.vscode/
