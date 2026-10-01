@@ -1,6 +1,6 @@
 # Approximate Strong Simulation of 1D Quantum Dynamics via Reduced Transition Matrix
 
-Julia code for the Master's thesis
+Julia code for the Master's thesis reaserch
 
 > **Approximate Strong Simulation of One-Dimensional Quantum Dynamics via Reduced Transition Matrix**
 > Matilde Grassi — MSc student, Università di Bologna, Department of Physics and Astronomy "A. Righi", 2026
@@ -9,14 +9,9 @@ Julia code for the Master's thesis
 
 Computes single amplitudes
 
-$$\mathcal{A}_{xy}(T) = \langle x|\,\hat U(T)\,|y\rangle$$
+$$\mathcal{A}_{xy}(T) = \langle x| \hat U(T) |y\rangle$$
 
 by transverse contraction with truncation on the **reduced transition matrix (RTM)**.
-
-References:
-
-- **TEBD-FW**: forward TEBD.
-- **TEBD-TR**: transverse TEBD with RDM truncation.
 
 Models:
 
@@ -159,7 +154,3 @@ Regimes of the thesis (`dt hx hz`):
   year   = {2026}
 }
 ```
-
-## License
-
-<!-- TODO: choose a license (e.g. MIT) -->
