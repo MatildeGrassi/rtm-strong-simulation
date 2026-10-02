@@ -1,17 +1,21 @@
 # Approximate Strong Simulation of 1D Quantum Dynamics via Reduced Transition Matrix
 
-Julia code for the Master's thesis reaserch
+Julia code for the Master's thesis research
 
 > **Approximate Strong Simulation of One-Dimensional Quantum Dynamics via Reduced Transition Matrix**
 > Matilde Grassi — MSc student, Università di Bologna, Department of Physics and Astronomy "A. Righi", 2026
 >
-> Research carried out in collaboration with CY Cergy Paris Université and Collège de France, in the group of Prof. Jacopo De Nardis.
+> Research carried out in collaboration with CY Cergy Paris Université and Collège de France, in the group of Prof. Jacopo De Nardis, and with Stefano Carignano and Luca Tagliacozzo.
 
 Computes single amplitudes
 
 $$\mathcal{A}_{xy}(T) = \langle x| \hat U(T) |y\rangle$$
 
 by transverse contraction with truncation on the **reduced transition matrix (RTM)**.
+
+A more detailed analysis of the circuit case can be found in:
+
+> M. Grassi, S. Carignano, L. Tagliacozzo, J. De Nardis, *Strong Simulation of 1D Quantum Circuits via Reduced Transition Matrices*, [arXiv:2610.02082](https://arxiv.org/abs/2610.02082) (2026).
 
 Models:
 
@@ -20,6 +24,16 @@ Models:
 - Trotterised Ising chain $H = J\sum XX + h_x\sum X + h_z\sum Z$.
 
 Built on [ITensors.jl](https://github.com/ITensor/ITensors.jl) and [ITensorMPS.jl](https://github.com/ITensor/ITensorMPS.jl).
+
+---
+
+## Three codes
+
+Three independent codes compute the same amplitude in different ways. With the same inputs they build the same circuit and agree with each other.
+
+- **RTM** (`src/rtm/`): transverse contraction with RTM truncation, swept until convergence. This is the main method.
+- **TEBD-TR** (`src/tebd/tebd_tr.jl`): the same transverse contraction in a single pass, with standard SVD truncation.
+- **TEBD-FW** (`src/tebd/tebd_fw.jl`): forward evolution in time. It is the exact reference for small $L$.
 
 ---
 
@@ -144,7 +158,20 @@ Regimes of the thesis (`dt hx hz`):
 
 ---
 
+## References
+
+1. M. C. Bañuls, M. B. Hastings, F. Verstraete, J. I. Cirac, *Matrix product states for dynamical simulation of infinite chains*, Phys. Rev. Lett. **102**, 240603 (2009).
+3. G. Vidal, *Efficient classical simulation of slightly entangled quantum computations*, Phys. Rev. Lett. **91**, 147902 (2003).
+4. S. Carignano, C. Ramos-Marimón, L. Tagliacozzo, *Temporal entropy and the complexity of computing the expectation value of local operators after a quench*, Phys. Rev. Research **6**, 033021 (2024).
+5. S. Carignano, G. Lami, J. De Nardis, L. Tagliacozzo, *Overcoming the entanglement barrier with sampled tensor networks* (2025).
+6. S. Carignano, *The ITransverse.jl library for transverse tensor network contractions*, SciPost Phys. Codebases 63 (2026).
+7. M. Fishman, S. R. White, E. M. Stoudenmire, *The ITensor software library for tensor network calculations*, SciPost Phys. Codebases 4 (2022).
+
+---
+
 ## Citation
+
+If you refer to this code, please cite:
 
 ```bibtex
 @mastersthesis{Grassi2026RTM,
@@ -154,3 +181,9 @@ Regimes of the thesis (`dt hx hz`):
   year   = {2026}
 }
 ```
+
+---
+
+## License
+
+No license: all rights reserved. The code is shared for reference only and is not a maintained library. For any reuse, please contact the author.
